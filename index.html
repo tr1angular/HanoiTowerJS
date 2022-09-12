@@ -1,93 +1,46 @@
-const stick1 = document.querySelector("#stick1");
-const stick2 = document.querySelector("#stick2");
-const stick3 = document.querySelector("#stick3");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ханойская башня 6 дисков</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 class="steps">Шаги: </h1>
+    <button class="start">Начать</button>
 
-const disk1 = document.querySelector(".disk1");
-const disk2 = document.querySelector(".disk2");
-const disk3 = document.querySelector(".disk3");
-const disk4 = document.querySelector(".disk4");
-const disk5 = document.querySelector(".disk5");
-const disk6 = document.querySelector(".disk6");
+    <div id="app">
+        <!-- Стержни -->
+        <div id="stick1"  class="stick">
+            <div class="level6"><div class="disk1"></div></div>
+            <div class="level5"><div class="disk2"></div></div>
+            <div class="level4"><div class="disk3"></div></div>
+            <div class="level3"><div class="disk4"></div></div>
+            <div class="level2"><div class="disk5"></div></div>
+            <div class="level1"><div class="disk6"></div></div>
+        </div>
 
-const steps = document.querySelector(".steps");
+        <div id="stick2" class="stick">
+            <div class="level6"></div>
+            <div class="level5"></div>
+            <div class="level4"></div>
+            <div class="level3"></div>
+            <div class="level2"></div>
+            <div class="level1"></div>
+        </div>
 
+        <div id="stick3" class="stick">
+            <div class="level6"></div>
+            <div class="level5"></div>
+            <div class="level4"></div>
+            <div class="level3"></div>
+            <div class="level2"></div>
+            <div class="level1"></div>
+        </div>
+    </div>
 
-// Привязать функцию начала работы приложения к кнопке "Начать"
-document.querySelector(".start").addEventListener("click", (event) => {
-  startMoving();
-});
-
-
-// Получить список селекторов уровней для каждого стержня
-const levels = {
-  "stick1": [],
-  "stick2": [],
-  "stick3": [],
-};
-
-for (let s = 1; s <= 3; s++) {
-  for (let i = 1; i <= 6; i++) {
-    levels[`stick${s}`].push(document.querySelector(`#stick${s} > .level${i}`));
-  }
-}
-
-const necessaryMoves = []; // ходы, которые необходимо сделать, чтобы решить головоломку
-function Hanoi(n, x, y, z) {
-  if (n <= 0)
-    return;
-
-  Hanoi(n - 1, x, z, y);
-  necessaryMoves.push([x, y]);
-  Hanoi(n - 1, z, y, x);
-  
-  return;
-}
-Hanoi(6, "stick1", "stick2", "stick3");
-
-function findHighestBusyElement(stick) {
-  // Найти самый высокий занятый уровень стержня (с которого будем перекладывать диск)
-
-  for (let level = 5; level >= 0; level--) {
-    if (levels[stick][level].hasChildNodes()) {
-      return levels[stick][level];
-    }
-  }
-
-  return levels[stick][0]; // если стержень пуст, вернуть первый уровень
-}
-
-function findEmptyElement(stick) {
-  // Найти пустой уровень (на который будем перекладывать диск)
-
-  for (let level = 0; level <= 5; level++) {
-    if (!levels[stick][level].hasChildNodes()) {
-      return levels[stick][level];
-    }
-  }
-}
-
-function moveDisk(from, to) {
-  // Переместить самый верхний диск на другой стержень
-  const initialPosition = findHighestBusyElement(from);
-  const destinationPosition = findEmptyElement(to);
-
-  destinationPosition.appendChild(initialPosition.firstElementChild);
-}
-
-function sleep(ms) {
-  // Задержка при передвижении дисков (чтоб не перемещалось моментально)
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-async function startMoving() {
-  let counter = 0; // счетчик шага
-  console.log(necessaryMoves);
-
-  // перемещать диски по шагам из массива
-  for (let move = 0; move < necessaryMoves.length; move++) {
-    await sleep(move * 150);
-    moveDisk(necessaryMoves[move][0], necessaryMoves[move][1]);
-    counter++;
-    steps.textContent = `Шаги: ${counter}`;
-  }
-}
+    <script src="index.js" type="text/javascript"></script>
+</body>
+</html>
