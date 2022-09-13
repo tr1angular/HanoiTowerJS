@@ -1,84 +1,84 @@
 #app {
-  margin: 200px;
-  display: flex;
-  flex-direction: row;
+    margin: 200px;
+    display: flex;
+    flex-direction: row;
 }
 
 .start {
-  background-color: #57cc99;
-  border-radius: 3px;
-  border: 1px hidden black;
-  padding: 20px;
-  font-size: 2rem;
-  color: #eee;
-  text-align: center;
+    background-color: #57cc99;
+    border-radius: 3px;
+    border: 1px hidden black;
+    padding: 20px;
+    font-size: 2rem;
+    color: #eee;
+    text-align: center;
 }
 
 .start:active {
-  background-color: #00ff91;
+    background-color: #00ff91;
 }
 
 .steps {
-  text-align: center;
-  text-transform: uppercase;
-  background-color: #126BBF;
-  color: #eee;
-  letter-spacing: .3rem;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: #126bbf;
+    color: #eee;
+    letter-spacing: 0.3rem;
 }
 
 .stick {
-  width: 12px;
-  height: 250px;
-  background-color: black;
-  margin-left: 350px;
-  
-  border-bottom: 1px solid black;
-  border-radius: 5px;
+    width: 12px;
+    height: 250px;
+    background-color: black;
+    margin-left: 350px;
+
+    border-bottom: 1px solid black;
+    border-radius: 5px;
 }
 
 .stick > div > div {
-  border: 1px double #2e2e2e;
-  border-radius: 5px;
+    border: 1px double #2e2e2e;
+    border-radius: 5px;
 }
 
 .disk1 {
-  width: 50px;
-  height: 40px;
-  background-color: #f27b63;
-  margin-left: -15px;
+    width: 50px;
+    height: 40px;
+    background-color: #f27b63;
+    margin-left: -15px;
 }
 
 .disk2 {
-  width: 70px;
-  height: 40px;
-  background-color: #e3ff55;
-  margin-left: -25px;
+    width: 70px;
+    height: 40px;
+    background-color: #e3ff55;
+    margin-left: -25px;
 }
 
 .disk3 {
-  width: 90px;
-  height: 40px;
-  background-color: #c53f3e;
-  margin-left: -35px;
+    width: 90px;
+    height: 40px;
+    background-color: #c53f3e;
+    margin-left: -35px;
 }
 
 .disk4 {
-  width: 110px;
-  height: 40px;
-  background-color: #9d85ff;
-  margin-left: -45px;
+    width: 110px;
+    height: 40px;
+    background-color: #9d85ff;
+    margin-left: -45px;
 }
 
 .disk5 {
-  width: 130px;
-  height: 40px;
-  background-color: #57cc99;
-  margin-left: -55px;
+    width: 130px;
+    height: 40px;
+    background-color: #57cc99;
+    margin-left: -55px;
 }
 
 .disk6 {
-  width: 150px;
-  height: 40px;
-  background-color: dodgerblue;
-  margin-left: -65px;
+    width: 150px;
+    height: 40px;
+    background-color: dodgerblue;
+    margin-left: -65px;
 }

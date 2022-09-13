@@ -13,12 +13,15 @@ const steps = document.querySelector(".steps");
 
 const necessaryMoves = []; // ходы, которые необходимо сделать, чтобы решить головоломку
 
+let isWorking = false;
+
 // Привязать функцию начала работы приложения к кнопке "Начать"
 document.querySelector(".start").addEventListener("click", (event) => {
-  Hanoi(6, "stick1", "stick2", "stick3");
-  startMoving();
+  if (!isWorking) {
+    Hanoi(6, "stick1", "stick2", "stick3");
+    startMoving();
+  }
 });
-
 
 // Получить список селекторов уровней для каждого стержня
 const levels = {
@@ -81,7 +84,7 @@ function sleep(ms) {
 
 async function startMoving() {
   let counter = 0; // счетчик шага
-  console.log(necessaryMoves);
+  isWorking = true;
 
   // перемещать диски по шагам из массива
   for (let move = 0; move < necessaryMoves.length; move++) {
@@ -90,4 +93,6 @@ async function startMoving() {
     counter++;
     steps.textContent = `Шаги: ${counter}`;
   }
+
+  isWorking = false;
 }
