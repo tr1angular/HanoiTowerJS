@@ -11,9 +11,11 @@ const disk6 = document.querySelector(".disk6");
 
 const steps = document.querySelector(".steps");
 
+const necessaryMoves = []; // ходы, которые необходимо сделать, чтобы решить головоломку
 
 // Привязать функцию начала работы приложения к кнопке "Начать"
 document.querySelector(".start").addEventListener("click", (event) => {
+  Hanoi(6, "stick1", "stick2", "stick3");
   startMoving();
 });
 
@@ -31,7 +33,6 @@ for (let s = 1; s <= 3; s++) {
   }
 }
 
-const necessaryMoves = []; // ходы, которые необходимо сделать, чтобы решить головоломку
 function Hanoi(n, x, y, z) {
   if (n <= 0)
     return;
@@ -42,7 +43,6 @@ function Hanoi(n, x, y, z) {
   
   return;
 }
-Hanoi(6, "stick1", "stick2", "stick3");
 
 function findHighestBusyElement(stick) {
   // Найти самый высокий занятый уровень стержня (с которого будем перекладывать диск)
